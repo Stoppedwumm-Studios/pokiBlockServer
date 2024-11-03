@@ -2,7 +2,6 @@ try {
     const { BrowserWindow, app } = require('electron');
     const path = require('path');
     const { electron } = require('process');
-    const ws = require("ws")
 
     app.on('ready', () => {
         try {
@@ -16,10 +15,6 @@ try {
             mainWindow.on("close", (e) => {
                 e.preventDefault()
                 app.hide()
-            })
-            const testSocket = new ws("ws://localhost:1765")
-            testSocket.addEventListener("open", () => {
-                testSocket.send("hello")
             })
         } catch (error) {
             console.log(error)
